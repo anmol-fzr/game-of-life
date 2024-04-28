@@ -25,17 +25,10 @@ const pos: [number, number][] = [
   [1, 1],
 ] as const;
 
-const genEmpty = (rowCount: number, colCount: number) => {
-  const rows: number[][] = Array.from(Array.from({ length: rowCount }), () =>
-    Array.from(Array.from({ length: rowCount }), () => 0),
+const genEmpty = (rowCount: number, colCount: number) =>
+  Array.from(Array.from({ length: rowCount }), () =>
+    Array.from(Array.from({ length: colCount }), () => 0),
   );
-  for (let i = 0; i < rowCount; i++) {
-    for (let j = 0; j < colCount; j++) {
-      rows[i][j] = 0;
-    }
-  }
-  return rows;
-};
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
